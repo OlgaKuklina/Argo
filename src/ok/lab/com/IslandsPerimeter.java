@@ -63,9 +63,16 @@ public class IslandsPerimeter {
         if(matrix[i][j] == 2) {
             return 0;
         }
-        if((j+1 >= matrix[0].length || matrix[i][j +1] == 0) || (i+1 >= matrix.length || matrix[i+1][j] == 0) ||
-                (i-1 < 0 || matrix[i-1][j] == 0)
-                || (j-1 < 0 || matrix[i][j-1] == 0)) {
+        if((j+1 >= matrix[0].length
+                || matrix[i][j +1] == 0)
+                || (i+1 >= matrix.length
+                || matrix[i+1][j] == 0)
+                || (i-1 < 0 || matrix[i-1][j] == 0)
+                || (j-1 < 0 || matrix[i][j-1] == 0)
+                || matrix[i-1][j-1] == 0
+                || matrix[i+1][j+1] == 0
+                || matrix[i+1][j-1] == 0
+                || matrix[i-1][j+1] == 0) {
             perimeter = perimeter+1;
             matrix[i][j] = 2;
             perimeter += getPerimeter(matrix, i-1, j);
